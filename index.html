@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="./script.js"></script>
@@ -12,7 +13,7 @@
 <body>
 
 <div class="block">
-<nav class ="navbar is-fixed-top is-primary">
+<nav class ="navbar is-fixed-top" style="background-color:#D98324 ;">
     <div class="navbar-brand">
         <a class="navbar-item" href="#">Home</a>
     </div>
@@ -25,17 +26,29 @@
 <br>
 
 
-<div class="block">
-    <div class="container">
-        <div class="notification is-large has-text-centered">
-            <h3 class="title is-3">Quarantine Dinner Ideas</h3>
-            <select class="">
-                <option>Home</option>
-                <option>Take out</option>
-            </select>
+<section class="hero is-medium is-bold" style="background-color: #9E2A2B;">
+    <div class="hero-body">
+        <div class="container">
+            <h2 class="title is-large has-text-centered" id="homeTitle" >
+                Hungry or Board
+            </h2>   
+            <div class="field">
+                <div class="control has-icons-right" id="userOption">
+                    <div class="select is-rounded is-danger" >
+                        <select class="is-hovered">
+                            <option>Your food your call</option>
+                            <option>Home</option>
+                            <option>Take out</option>
+                        </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-utensils"></i>
+                      </div>
+                </div>    
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 <div class="block">
     <div class="columns">
