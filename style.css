@@ -1,0 +1,16 @@
+#homeTitle{
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+}
+
+#userOption{
+    text-align: center;
+
+}
+
+#backgroundHome{
+    background-size: 1500px;
+    width: 100%;
+    height: 450px;
+
+}
