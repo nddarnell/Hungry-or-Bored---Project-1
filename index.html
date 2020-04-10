@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -26,19 +27,25 @@
 <br>
 
 
-<section class="hero is-medium is-bold" style="background-color: #9E2A2B;">
+<section class="hero is-medium is-bold" style="background-image: url('../assets/italianbackgroundmedium.jpg');" id="backgroundHome">
     <div class="hero-body">
         <div class="container">
             <h2 class="title is-large has-text-centered" id="homeTitle" >
-                Hungry or Board
+                Hungry or Bored
             </h2>   
             <div class="field">
                 <div class="control has-icons-right" id="userOption">
                     <div class="select is-rounded is-danger" >
                         <select class="is-hovered">
                             <option>Your food your call</option>
-                            <option>Home</option>
-                            <option>Take out</option>
+                            <option id="burgers">Burgers</option>
+                            <option id="pizza">Pizza</option>
+                            <option id="italian">Italian</option>
+                            <option id="french">French</option>
+                            <option id="chinese">Chinese</option>
+                            <option id="japanese">Japanese</option>
+                            <option id="takeOut">Mexican</option>
+                            <option id="middleEastern">Middle Eastern</option>
                         </select>
                     </div>
                     <div class="icon is-small is-left">
@@ -50,13 +57,16 @@
     </div>
 </section>
 
+<br>
+<br>
+
 <div class="block">
     <div class="columns">
         <div class="column">
-            <p class="notification">fdfdgd</p>
+            <p class="notification" id="homeMeal">Make a Home Meal</p>
         </div>
         <div class="column">
-            <p class="notification">fdfdgd</p>
+            <p class="notification" id="takeOut">Restaurant Nearby</p>
         </div>
     </div>
 
