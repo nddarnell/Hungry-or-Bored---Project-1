@@ -45,7 +45,8 @@ function specificRecipe(specificurl){
         method: 'GET',
     }).then(function(response){
         console.log(response[0].steps.length);
-        
+        //Pop up modal
+        //Add recipe content inside
         
     });
 }
