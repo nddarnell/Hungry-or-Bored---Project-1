@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
     //Listing call
-    let listingurl = "https://api.spoonacular.com/recipes/search?number=5&instructionsRequired=true&apiKey=16b323f7162e4ff58af54ffcad8e3db2"
+    let listingurl = "https://api.spoonacular.com/recipes/search?number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
     $.ajax({
         url: listingurl,
         method: 'GET'
@@ -15,8 +15,9 @@ $(document).ready(function(){
             let recipePhoto = response.results[i].image;
             let id = response.results[i].id;
             let recipeDiv = $("<div>");
-            recipeDiv.addClass("level notification");
+            recipeDiv.addClass("level notification recipe-list");
             let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
+            recipeDiv.attr("data-value", id);
             recipeImg.addClass("recipe-image-styles");
             recipeDiv.append(recipeImg);
             let recipeNameh2 = $("<h2>").text(recipeName);
@@ -24,10 +25,18 @@ $(document).ready(function(){
             let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
             recipeDiv.append(recipeTimeP);
             $("#recipe-append").append(recipeDiv);
-            let specificurl = "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=16b323f7162e4ff58af54ffcad8e3db2";
-            specificRecipe(specificurl);
         }
     });
+    
+    
+    $("#recipe-append").on("click",".recipe-list", function(){
+        let recipeId = $(this).data("value");
+        let specificurl = "https://api.spoonacular.com/recipes/" + recipeId + "/analyzedInstructions?apiKey=b1c4692acbe74405a4cfce6b5a43950d";
+        console.log(recipeId);
+        specificRecipe(specificurl);
+    });
+
+
 
     //Specific URL call
 function specificRecipe(specificurl){
@@ -35,7 +44,8 @@ function specificRecipe(specificurl){
         url: specificurl,
         method: 'GET',
     }).then(function(response){
-        console.log(response);
+        console.log(response[0].steps.length);
+        
         
     });
 }
