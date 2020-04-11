@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script
+   src="https://code.jquery.com/jquery-3.4.1.min.js"
+   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/lax.js" ></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <script src="./script.js"></script>
+    <script src="./bored.js"></script>
     <link rel="stylesheet" href="./style.css">
     <title>Hungry or Bored</title>
 </head>
@@ -21,6 +28,7 @@
     <div class="navbar-menu">
           <a class="navbar-item" href="#"> Receipt</a>
           <a class="navbar-item" href="#"> Delivery</a>
+          <a class="navbar-item" href="#"> Bored</a>
 </nav>
 </div>
 <br>
@@ -30,7 +38,7 @@
 <section class="hero is-medium is-bold" style="background-image: url('../assets/italianbackgroundmedium.jpg');" id="backgroundHome">
     <div class="hero-body">
         <div class="container">
-            <h2 class="title is-large has-text-centered" id="homeTitle" >
+            <h2 class="title is-2 has-text-centered animated rotateIn delay-1s" id="homeTitle" >
                 Hungry or Bored
             </h2>   
             <div class="field">
@@ -46,6 +54,7 @@
                             <option id="japanese">Japanese</option>
                             <option id="takeOut">Mexican</option>
                             <option id="middleEastern">Middle Eastern</option>
+                            <option id="bored">Or Bored</option>
                         </select>
                     </div>
                     <div class="icon is-small is-left">
@@ -60,18 +69,25 @@
 <br>
 <br>
 
-<div class="block">
-    <div class="columns" style="background-color: #D98324;">
-        <div class="column is-half">
-            <a href="#" class="notification" id="homeMeal">Make a Home Meal</a>
-        </div>
-        <div class="column is-half">
-            <a href="#" class="notification" id="takeOut">Restaurant Nearby</a>
-        </div>
-    </div>
+        <div class="columns is-centered" id="choiceBox">
+            <div class="column has-text-centered is-6" style="background-color: #E3C567">
+                <a href="#" class="animated " id="homeMeal">Make a Home Meal</a>
+                
+            </div>
+            <div class="column has-text-centered is-6" style="background-color:#D9AE61">
+                <a href="#" id="takeOut">Restaurant Nearby</a>
+            </div>
+           
+          </div>
+
+
+<div class="block" id="boredBlock">
+
+    <button id="boredBtn">click me</button>
+    
+
 
 </div>
-
 
 
     

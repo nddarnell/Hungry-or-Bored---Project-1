@@ -17,11 +17,14 @@
 
 
 #choiceBox{
- height: 500px;
-
+ height: 250px;
 }
 
 
 #homeMeal{
-    text-align: center;
+    line-height: 200px;
+}
+
+#takeOut{
+    line-height: 200px;
 }
