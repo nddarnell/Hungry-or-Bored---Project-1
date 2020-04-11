@@ -14,15 +14,24 @@ function searchActivity(){
     $.ajax({
         url:boredURL,
         method:"GET"
-    }).then(function(activity){
-        console.log(activity);
+    }).then(function(response){
+        console.log(response);
 
+            let pElement = $("<p>");
+       
+            pElement.text(response.activity)
+            pElement.attr("class","has-text-centered");
+            $("#boredBlock").append(pElement);
+      
     })
-    
 
 };
 
+$("#boredBtn").on("click",function(){
+   
+    searchActivity()
 
+})
 
 
 })
