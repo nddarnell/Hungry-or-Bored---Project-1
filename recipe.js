@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 
     //Listing call
-    let  foodType = "Thai"
     let listingurl = "https://api.spoonacular.com/recipes/search?number=5&instructionsRequired=true&apiKey=16b323f7162e4ff58af54ffcad8e3db2"
     $.ajax({
         url: listingurl,
@@ -22,16 +21,13 @@ $(document).ready(function(){
             recipeDiv.append(recipeImg);
             let recipeNameh2 = $("<h2>").text(recipeName);
             recipeDiv.append(recipeNameh2);
-            let recipeTimeP = $("<p>").text(recipeCookTime);
+            let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
             recipeDiv.append(recipeTimeP);
             $("#recipe-append").append(recipeDiv);
             let specificurl = "https://api.spoonacular.com/recipes/" + id + "/analyzedInstructions?apiKey=16b323f7162e4ff58af54ffcad8e3db2";
             specificRecipe(specificurl);
         }
     });
-
-
-
 
     //Specific URL call
 function specificRecipe(specificurl){
