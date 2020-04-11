@@ -14,3 +14,8 @@
     height: 450px;
 
 }
+.recipe-image-styles {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
