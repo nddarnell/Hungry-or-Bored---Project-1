@@ -35,29 +35,30 @@ $(document).ready(function(){
         let specificurl = "https://api.spoonacular.com/recipes/" + recipeId + "/analyzedInstructions?apiKey=b1c4692acbe74405a4cfce6b5a43950d";
         console.log(recipeId);
         specificRecipe(specificurl);
+        $("#append-recipe-details").empty();
     });
-
+    
     function closeModal(){
         modalOuter.classList.remove('open');
     }
-
+    
     modalOuter.addEventListener('click', function(event){
         const isOutside = !event.target.closest('.modal-inner');
         if (isOutside) {
             modalOuter.classList.remove('open');
         }
     })
-
+    
     //Specific URL call
-function specificRecipe(specificurl){
-    $.ajax({
-        url: specificurl,
-        method: 'GET',
-    }).then(function(response){
-        console.log(response[0].steps);
-        modalOuter.classList.add('open');
-        let stepOl = $("<ol>");
-        $("#append-recipe-details").append(stepOl)
+    function specificRecipe(specificurl){
+        $.ajax({
+            url: specificurl,
+            method: 'GET',
+        }).then(function(response){
+            console.log(response[0].steps);
+            modalOuter.classList.add('open');
+            let stepOl = $("<ol>");
+            $("#append-recipe-details").append(stepOl)
         for (let i = 0; i < response[0].steps.length; i++){
         let step = response[0].steps[i].step;
         let currentStep = $("<li>").text(step);
