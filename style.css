@@ -31,12 +31,13 @@
 }
 .modal-outer {
   display: grid;
-  background: hsla(50, 100%, 50%, 0.7);
+  background: hsla(32, 36%, 73%, 0.7);
   position: fixed;
   height: 100vh;
   width: 100vw;
   top: 0;
   left: 0;
+  z-index: 100;;
   justify-content: center;
   align-items: center;
   opacity: 0;
@@ -47,40 +48,11 @@
   opacity: 1;
   pointer-events: all;
 }
-.modal-inner {
-  max-width: 600px;
-  min-width: 400px;
-  min-height: 200px;
-  background: #252c4a;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-    display: grid;
-    background: hsla(50, 100%, 50%, 0.7);
-    position: fixed;
-    height:100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s;
-  }
-  .modal-outer.open{
-    opacity: 1;
-    pointer-events: all;
-  }
-  .modal-inner{
+.modal-inner{
     max-width: 600px;
     min-width: 400px;
     min-height: 200px;
-    background: #252c4a;
+    background: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -89,6 +61,7 @@
     text-align:center;
     padding:20px;
   }
+
 .recipe-list {
     
 }
