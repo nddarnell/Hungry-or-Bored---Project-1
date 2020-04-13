@@ -19,7 +19,17 @@ $(document).ready(function(){
         }).then(function(response){
             console.log(response);
             $("#recipe-append").empty();
-            for (let i = 0; i < 6; i++){
+            if (response.totalResults == 0){
+                let errorDiv = $("<div>");
+                errorDiv.addClass("card notification errorDiv");
+                let icon = $("<i>").addClass("fa fa-cutlery is-large")
+                let errorh2 = $("<h2>").text("Sorry, this search returned no results");
+                errorh2.addClass("is-size-1")
+                errorDiv.append(icon, errorh2);
+                $("#recipe-append").append(errorDiv);
+
+            } else {
+                for (let i = 0; i < 6; i++){
                 let recipeName = response.results[i].title;
                 let recipeCookTime = response.results[i].readyInMinutes;
                 let baseUri = "";
@@ -42,6 +52,7 @@ $(document).ready(function(){
                 recipeTimeP.addClass("sub-title is-2");
                 recipeDiv.append(recipeTimeP);
                 $("#recipe-append").append(recipeDiv);
+            }
             }
         });
 
@@ -101,6 +112,7 @@ $(document).ready(function(){
 
     $("#clear-ingredients").on("click", function(){
         $("#append-ingredients").empty();
+        ingredientArray.length = 0;
     });
 
     $("#filter-recipes").on("click", function(){

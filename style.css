@@ -94,6 +94,14 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.errorDiv {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
 @media (max-width:768px){
     .recipe-list-container {
         flex-direction: column;
