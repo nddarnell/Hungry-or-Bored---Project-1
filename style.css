@@ -24,9 +24,9 @@
 #takeOut {
   line-height: 200px;
 }
-.recipe-image-styles {
-  width: 100px;
-  height: 100px;
+.card-image {
+  width: 200px;
+  height: 200px;
   object-fit: cover;
 }
 .modal-outer {
@@ -65,10 +65,6 @@
     padding: 20px;
 }
 
-.recipe-list {
-    
-}
-
 #boredBlock{
   margin: 50px;
 }
@@ -83,4 +79,26 @@
 }
 #append-ingredients {
     margin:10px;
+}
+.recipe-list{
+    width: 32vw;
+    margin:5px;
+    max-height: 58vh;
+}
+.recipe-list:hover {
+    border: 1px solid #f14668;
+}
+.recipe-list-container {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media (max-width:768px){
+    .recipe-list-container {
+        flex-direction: column;
+    }
+    .recipe-list{
+        width: 100%;
+    }
 }
