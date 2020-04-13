@@ -3,44 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap styles need to change to bulma -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- css styling for map -->
     <link rel="stylesheet" href="./Assets/map_styles.css">
+    <!-- Icon for the rating of the restaurants -->
+    <script src="https://code.iconify.design/1/1.0.5/iconify.min.js"></script>
     <title>Places Nearby!</title>
 </head>
+
 <body>
-    
-
     <div class="container-fluid">
-        <div class ="row">
-            <div class="col mt-5">
-                <input class="form-control" id="searchArea" type="text" placeholder="What are you hungry for?">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col mt-5">
-                <div id="map">
 
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <div class="col mt-5">
-                <div id="restaurantsList">
-                    
+            <div class="col mt-3 mb-2 text-center">
+                <h3>What food are you hungry for?</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mb-2">
+                <input type="text" class="form-control" placeholder="What are you hungry for?" id="searchArea">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mb-2">
+                <div id="map-area">
+ 
                 </div>
             </div>
         </div>
+
     </div>
+</body>
 
-
-
+<footer>
+    <!-- Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Jquery source -->
     <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!-- Google Maps scripts required -->
-    <script src="./Assets/places_script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDseF0zN9q-cCgNSM-jODuciBkv_ktc874&callback=ourMap&radius=10000&libraries=places" async defer></script>
-
-</body>
+    <!-- googles js map source -->
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    <!-- local js source -->
+    <script src="./Assets/places_script.js"></script> 
+    <!-- googles places source -->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=places&key=AIzaSyDseF0zN9q-cCgNSM-jODuciBkv_ktc874" async defer></script>
+</footer>
 </html>
