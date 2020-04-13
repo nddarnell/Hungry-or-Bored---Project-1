@@ -1,33 +1,47 @@
 $(document).ready(function(){
-
+    
     let modalInner = document.querySelector(".modal-inner");
     let modalOuter = document.querySelector(".modal-outer");
     //Listing call
+    let currentSelection = "";
     let listingurl = "https://api.spoonacular.com/recipes/search?number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
-    $.ajax({
-        url: listingurl,
-        method: 'GET'
-    }).then(function(response){
-        console.log(response);
-        for (let i = 0; i < 5; i++){
-            let recipeName = response.results[i].title;
-            let recipeCookTime = response.results[i].readyInMinutes;
-            let baseUri = response.baseUri;
-            let recipePhoto = response.results[i].image;
-            let id = response.results[i].id;
-            let recipeDiv = $("<div>");
-            recipeDiv.addClass("level notification recipe-list");
-            let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
-            recipeDiv.attr("data-value", id);
-            recipeImg.addClass("recipe-image-styles");
-            recipeDiv.append(recipeImg);
-            let recipeNameh2 = $("<h2>").text(recipeName);
-            recipeDiv.append(recipeNameh2);
-            let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
-            recipeDiv.append(recipeTimeP);
-            $("#recipe-append").append(recipeDiv);
-        }
-    });
+    buildList(listingurl);
+    $("#homeMeal").on("click", function(){
+        currentSelection = $(".is-hovered").val()
+        let listingurl = "https://api.spoonacular.com/recipes/search?query=" + currentSelection + "&number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
+        console.log(listingurl);
+        buildList(listingurl);
+    })
+
+    function buildList(listingurl){
+        $.ajax({
+            url: listingurl,
+            method: 'GET'
+        }).then(function(response){
+            console.log(response);
+            $("#recipe-append").empty();
+            for (let i = 0; i < 5; i++){
+                let recipeName = response.results[i].title;
+                let recipeCookTime = response.results[i].readyInMinutes;
+                let baseUri = response.baseUri;
+                let recipePhoto = response.results[i].image;
+                let id = response.results[i].id;
+                let recipeDiv = $("<div>");
+                recipeDiv.addClass("level notification recipe-list");
+                let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
+                recipeDiv.attr("data-value", id);
+                recipeImg.addClass("recipe-image-styles");
+                recipeDiv.append(recipeImg);
+                let recipeNameh2 = $("<h2>").text(recipeName);
+                recipeDiv.append(recipeNameh2);
+                let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
+                recipeDiv.append(recipeTimeP);
+                $("#recipe-append").append(recipeDiv);
+            }
+        });
+
+
+    }
     
     
     $("#recipe-append").on("click",".recipe-list", function(){
@@ -70,6 +84,7 @@ $(document).ready(function(){
         
     });
 }
+
         
     
 });  
