@@ -39,7 +39,7 @@
             <div class="field">
                 <div class="control has-icons-right" id="userOption">
                     <div class="select is-rounded is-danger" >
-                        <select class="is-hovered">
+                        <select id="topdrop" class="is-hovered changeAll">
                             <option>Your food your call</option>
                             <option id="burgers">Burgers</option>
                             <option id="pizza">Pizza</option>
@@ -65,8 +65,8 @@
     <div class="modal-outer">
         <div class="modal-inner" id="append-recipe-details">  
         </div>
-      </div>
-
+    </div>
+    
     <div class="block">
         <div class="columns">
             <div class="column">
@@ -76,13 +76,41 @@
                 <p class="notification" id="takeOut">Restaurant Nearby</p>
             </div>
         </div>
-        
+        <div class="is-inline-block">
+        <div class="select is-rounded is-danger" >
+            <select id="food-type" class="is-hovered changeAll">
+                <option data-value="" disable selected>Food type (optional)</option>
+                <option data-value="burgers">Burgers</option>
+                <option data-value="pizza">Pizza</option>
+                <option data-value="italian">Italian</option>
+                <option data-value="french">French</option>
+                <option data-value="chinese">Chinese</option>
+                <option data-value="japanese">Japanese</option>
+                <option data-value="mexican">Mexican</option>
+                <option data-value="middleEastern">Middle Eastern</option>
+            </select>
+        </div>
+            <div class="select is-rounded is-danger" >
+                <select id="cook-time" class="is-hovered changeAll">
+                    <option data-value="">Cook Time</option>
+                    <option data-value="20">Up to 20 minutes</option>
+                    <option data-value="40">Up to 40 minutes</option>
+                    <option data-value="60">Up to 1 hour</option>
+                    <option data-value="">Any cook time</option>
+                </select>
+            </div>
+                <input id="get-ingredient" type="text" class="add-ingredients-input input" placeholder="Add Ingredients">
+                <button id="add-ingredient" class="button add-ingredients-add" type="submit"><i class="fa fa-plus"></i></button>
+                <button id="clear-ingredients" class="button is-rounded">Clear Ingredients</button>
+                <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
+            </div>
+            <div class="block" id="append-ingredients"></div>           
         <div class="block" id="recipe-append">
         </div>
-</div>
-
-
-
+    </div>
+    
+    
+    
     
 </body>
 </html>
