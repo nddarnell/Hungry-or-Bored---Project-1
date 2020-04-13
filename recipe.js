@@ -11,8 +11,18 @@ $(document).ready(function(){
         let listingurl = "https://api.spoonacular.com/recipes/search?query=" + currentSelection + "&number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
         console.log(listingurl);
         buildList(listingurl);
-    })
+    });
+    $("#top-drop").change(function() {
+        var val = $(this).val();
+        if (val == "item1") {
+            $("#main-drop").html("<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>");
+        } else if (val == "item2") {
+            $("#main-drop").html("<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>");
 
+        } else if (val == "item3") {
+            $("#main-drop").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
+        }
+    });
     function buildList(listingurl){
         $.ajax({
             url: listingurl,

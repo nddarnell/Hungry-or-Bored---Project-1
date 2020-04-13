@@ -39,7 +39,7 @@
             <div class="field">
                 <div class="control has-icons-right" id="userOption">
                     <div class="select is-rounded is-danger" >
-                        <select class="is-hovered">
+                        <select id="topdrop" class="is-hovered changeAll">
                             <option>Your food your call</option>
                             <option id="burgers">Burgers</option>
                             <option id="pizza">Pizza</option>
@@ -65,8 +65,8 @@
     <div class="modal-outer">
         <div class="modal-inner" id="append-recipe-details">  
         </div>
-      </div>
-
+    </div>
+    
     <div class="block">
         <div class="columns">
             <div class="column">
@@ -76,13 +76,26 @@
                 <p class="notification" id="takeOut">Restaurant Nearby</p>
             </div>
         </div>
+        <div class="select is-rounded is-danger" >
+            <select class="is-hovered changeAll">
+                <option>Your food your call</option>
+                <option id="burgers">Burgers</option>
+                <option id="pizza">Pizza</option>
+                <option id="italian">Italian</option>
+                <option id="french">French</option>
+                <option id="chinese">Chinese</option>
+                <option id="japanese">Japanese</option>
+                <option id="takeOut">Mexican</option>
+                <option id="middleEastern">Middle Eastern</option>
+            </select>
+        </div>
         
         <div class="block" id="recipe-append">
         </div>
-</div>
-
-
-
+    </div>
+    
+    
+    
     
 </body>
 </html>
