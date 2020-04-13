@@ -4,11 +4,11 @@ $(document).ready(function(){
     let modalOuter = document.querySelector(".modal-outer");
     //Listing call
     let currentSelection = "";
-    let listingurl = "https://api.spoonacular.com/recipes/search?number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
+    let listingurl = "https://api.spoonacular.com/recipes/search?number=6&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
     buildList(listingurl);
     $("#homeMeal").on("click", function(){
         currentSelection = $(".is-hovered").val()
-        let listingurl = "https://api.spoonacular.com/recipes/search?query=" + currentSelection + "&number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
+        let listingurl = "https://api.spoonacular.com/recipes/search?query=" + currentSelection + "&number=6&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
         console.log(listingurl);
         buildList(listingurl);
     });
@@ -19,7 +19,7 @@ $(document).ready(function(){
         }).then(function(response){
             console.log(response);
             $("#recipe-append").empty();
-            for (let i = 0; i < 5; i++){
+            for (let i = 0; i < 6; i++){
                 let recipeName = response.results[i].title;
                 let recipeCookTime = response.results[i].readyInMinutes;
                 let baseUri = "";
@@ -30,14 +30,16 @@ $(document).ready(function(){
                 let recipePhoto = response.results[i].image;
                 let id = response.results[i].id;
                 let recipeDiv = $("<div>");
-                recipeDiv.addClass("level notification recipe-list");
+                recipeDiv.addClass("card notification recipe-list");
                 let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
                 recipeDiv.attr("data-value", id);
-                recipeImg.addClass("recipe-image-styles");
+                recipeImg.addClass("card-image");
                 recipeDiv.append(recipeImg);
                 let recipeNameh2 = $("<h2>").text(recipeName);
+                recipeNameh2.addClass("title is-4");
                 recipeDiv.append(recipeNameh2);
                 let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
+                recipeTimeP.addClass("sub-title is-2");
                 recipeDiv.append(recipeTimeP);
                 $("#recipe-append").append(recipeDiv);
             }
@@ -45,7 +47,6 @@ $(document).ready(function(){
 
 
     }
-    
     
     $("#recipe-append").on("click",".recipe-list", function(){
         let recipeId = $(this).data("value");
@@ -105,9 +106,9 @@ $(document).ready(function(){
     $("#filter-recipes").on("click", function(){
         let foodType = $("#food-type").find(':selected').data("value");
         let cookTime = $("#cook-time").find(':selected').data("value");
-        let ingredientsList = ingredientArray.join();
-        console.log(foodType, cookTime, ingredientsList)
-        listingurl = "https://api.spoonacular.com/recipes/complexSearch?q=&cuisine=" + foodType + "&maxReadyTime=" + cookTime + "&includeIngredients=" + ingredientsList + "&number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
+        let removeWhiteSpaces = ingredientArray.join(" ").trim().split(' ');
+        let ingredientsList = removeWhiteSpaces.join();
+        listingurl = "https://api.spoonacular.com/recipes/complexSearch?q=&cuisine=" + foodType + "&maxReadyTime=" + cookTime + "&includeIngredients=" + ingredientsList + "&number=6&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
         console.log(listingurl);
         buildList(listingurl);
     });
