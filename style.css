@@ -72,3 +72,15 @@
 #boredBlock{
   margin: 50px;
 }
+.input {
+    width:200px;
+}
+.add-ingredients-input {
+    border-radius: 20px 0px 0px 20px;
+}
+.add-ingredients-add {
+    border-radius: 0px 20px 20px 0px;
+}
+#append-ingredients {
+    margin:10px;
+}

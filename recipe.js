@@ -12,17 +12,6 @@ $(document).ready(function(){
         console.log(listingurl);
         buildList(listingurl);
     });
-    $("#top-drop").change(function() {
-        var val = $(this).val();
-        if (val == "item1") {
-            $("#main-drop").html("<option value='test'>item1: test 1</option><option value='test2'>item1: test 2</option>");
-        } else if (val == "item2") {
-            $("#main-drop").html("<option value='test'>item2: test 1</option><option value='test2'>item2: test 2</option>");
-
-        } else if (val == "item3") {
-            $("#main-drop").html("<option value='test'>item3: test 1</option><option value='test2'>item3: test 2</option>");
-        }
-    });
     function buildList(listingurl){
         $.ajax({
             url: listingurl,
@@ -33,7 +22,11 @@ $(document).ready(function(){
             for (let i = 0; i < 5; i++){
                 let recipeName = response.results[i].title;
                 let recipeCookTime = response.results[i].readyInMinutes;
-                let baseUri = response.baseUri;
+                let baseUri = "";
+                if (typeof response.baseUri !== "undefined"){
+                     baseUri = response.baseUri;
+                }
+                console.log(baseUri);
                 let recipePhoto = response.results[i].image;
                 let id = response.results[i].id;
                 let recipeDiv = $("<div>");
@@ -94,7 +87,30 @@ $(document).ready(function(){
         
     });
 }
+    let ingredientArray = [];
+    $("#add-ingredient").on("click", function(){
+        let ingredientLabel = $("<span>");
+        ingredientLabel.addClass("tag is-light is-medium is-danger is-rounded");
+        let ingredientInput = $("#get-ingredient").val();
+        ingredientLabel.text(ingredientInput);
+        ingredientArray.push(ingredientInput);
+        $("#append-ingredients").prepend(ingredientLabel);
+        $("#get-ingredient").val('');
+    });
 
+    $("#clear-ingredients").on("click", function(){
+        $("#append-ingredients").empty();
+    });
+
+    $("#filter-recipes").on("click", function(){
+        let foodType = $("#food-type").find(':selected').data("value");
+        let cookTime = $("#cook-time").find(':selected').data("value");
+        let ingredientsList = ingredientArray.join();
+        console.log(foodType, cookTime, ingredientsList)
+        listingurl = "https://api.spoonacular.com/recipes/complexSearch?q=&cuisine=" + foodType + "&maxReadyTime=" + cookTime + "&includeIngredients=" + ingredientsList + "&number=5&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
+        console.log(listingurl);
+        buildList(listingurl);
+    });
         
     
 });  
