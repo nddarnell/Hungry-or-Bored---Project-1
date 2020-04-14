@@ -119,6 +119,10 @@
     align-items: center;
     justify-content: center;
 }
+#scroll-recipe{
+    height: 10vh;
+    width: 5vw;
+}
 @media (max-width:768px){
     .recipe-list-container {
         flex-direction: column;
