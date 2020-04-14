@@ -40,7 +40,7 @@ $(document).ready(function(){
                 let recipePhoto = response.results[i].image;
                 let id = response.results[i].id;
                 let recipeDiv = $("<div>");
-                recipeDiv.addClass("card notification recipe-list");
+                recipeDiv.addClass("card is-rounded recipe-list");
                 let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
                 recipeDiv.attr("data-value", id);
                 recipeImg.addClass("card-image");
