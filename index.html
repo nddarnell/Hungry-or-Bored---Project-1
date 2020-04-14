@@ -72,11 +72,11 @@
 <br>
 
         <div class="columns is-centered" id="choiceBox">
-            <div class="column has-text-centered is-6" style="background-color: #E3C567">
-                <a href="#" class="animated " id="homeMeal">Make a Home Meal</a>
+            <div href="#append-ingredients" class="column has-text-centered is-6" id="homeMeal" style="background-color: #E3C567">
+                <a href="#append-ingredients" class="animated" id="homeMeal">Make a Home Meal</a>
                 
             </div>
-            <div class="column has-text-centered is-6" style="background-color:#D9AE61">
+            <div class="column has-text-centered is-6" id="takeOut" style="background-color:#D9AE61">
                 <a href="#" id="takeOut">Restaurant Nearby</a>
             </div>
            
@@ -90,6 +90,44 @@
 
 
 </div>
+ <div class="modal-outer">
+        <div class="modal-inner" id="append-recipe-details">  
+        </div>
+    </div>
+    
+    <div class="block">
+        <div class="is-inline-block">
+        <div class="select is-rounded is-danger" >
+            <select id="food-type" class="is-hovered changeAll">
+                <option data-value="" disable selected>Food type (optional)</option>
+                <option data-value="American">American</option>
+                <option data-value="Chinese">Chinese</option>
+                <option data-value="German">German</option>
+                <option data-value="Indian">Indian</option>
+                <option data-value="Italian">Italian</option>
+                <option data-value="Japanese">Japanese</option>
+                <option data-value="Mexican">Mexican</option>
+                <option data-value="Thai">Thai</option>
+            </select>
+        </div>
+            <div class="select is-rounded is-danger" >
+                <select id="cook-time" class="is-hovered changeAll">
+                    <option data-value="800">Cook Time (optional)</option>
+                    <option data-value="20">Up to 20 minutes</option>
+                    <option data-value="40">Up to 40 minutes</option>
+                    <option data-value="60">Up to 1 hour</option>
+                    <option data-value="800">Any cook time</option>
+                </select>
+            </div>
+                <input id="get-ingredient" type="text" class="add-ingredients-input input" placeholder="Add Ingredients">
+                <button id="add-ingredient" class="button add-ingredients-add" type="submit"><i class="fa fa-plus"></i></button>
+                <button id="clear-ingredients" class="button is-rounded">Clear Ingredients</button>
+                <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
+            </div>
+            <div class="block" id="append-ingredients"></div>           
+        <div class="block recipe-list-container" id="recipe-append">
+        </div>
+    </div>
 
 <br>
 <br>
