@@ -14,6 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- local js source -->
+    <script src="./Assets/places_script.js"></script> 
+    <!-- googles places source -->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=places&key=AIzaSyDseF0zN9q-cCgNSM-jODuciBkv_ktc874" async defer></script>
     <script src="./recipe.js"></script>
     <script src="./script.js"></script>
     <script src="./bored.js"></script>
@@ -22,15 +26,15 @@
 </head>
 <body>
 
-<div class="block">
+<div id="top" class="block">
 <nav class ="navbar is-fixed-top" style="background-color:#D98324 ;">
     <div class="navbar-brand">
-        <a class="navbar-item" href="#">Home</a>
+        <a class="navbar-item" href="#top">Home</a>
     </div>
     <div class="navbar-menu">
-          <a class="navbar-item is-uppercase" href="#"> Find Takeout</a>
+          <a class="navbar-item is-uppercase" href="#map"> Find Takeout</a>
           <a class="navbar-item is-uppercase" href="#scroll-recipe"> Find Recipe</a>
-          <a class="navbar-item is-uppercase" href="#"> Bored</a>
+          <a class="navbar-item is-uppercase" href="#boredBlock"> Bored</a>
           <a class="navbar-item is-uppercase" href="#"> About</a>
 </nav>
 </div>
@@ -49,8 +53,8 @@
                     <div class="select is-rounded is-danger" >
                         <select class="is-hovered" id="selected">
                             <option>Your food your call</option>
-                            <option value="receiptBlock">Homemade Food</option>
-                            <option value="mapBlock">Delicious Food Nearby</option>
+                            <option value="recipe-area">Homemade Food</option>
+                            <option value="map">Delicious Food Nearby</option>
                             <option value="boredBlock"id="bored">Or Just Bored</option>
                             
                         </select>
@@ -79,63 +83,90 @@
           </div>
 
 
-<div class="block" id="boredBlock">
-
-    <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Click Me!!!</button>
-    <p class="has-text-centered" id="boredActivity"></p>
-    
-
-
-</div>
- <div class="modal-outer">
-        <div class="modal-inner" id="append-recipe-details">  
+          <div class="modal-outer">
+              <div class="modal-inner" id="append-recipe-details">  
+            </div>
         </div>
-    </div>
-    <section class="recipe-area">
-                        <div id="recipe-area" class="block recipe-container">
-                            <div id="scroll-recipe"></div>
-                            <div class="is-inline-block">
-                            <div class="select is-rounded is-danger" >
-                                <select id="food-type" class="is-hovered changeAll">
-                                    <option data-value="" disable selected>Food type (optional)</option>
-                                    <option data-value="American">American</option>
-                                    <option data-value="Chinese">Chinese</option>
-                                    <option data-value="German">German</option>
-                                    <option data-value="Indian">Indian</option>
-                                    <option data-value="Italian">Italian</option>
-                                    <option data-value="Japanese">Japanese</option>
-                                    <option data-value="Mexican">Mexican</option>
-                                    <option data-value="Thai">Thai</option>
-                                </select>
-                            </div>
-                                <div class="select is-rounded is-danger" >
-                                    <select id="cook-time" class="is-hovered changeAll">
-                                        <option data-value="800">Cook Time (optional)</option>
-                                        <option data-value="20">Up to 20 minutes</option>
-                                        <option data-value="40">Up to 40 minutes</option>
-                                        <option data-value="60">Up to 1 hour</option>
-                                        <option data-value="800">Any cook time</option>
-                                    </select>
-                                </div>
-                                    <input id="get-ingredient" type="text" class="add-ingredients-input input" placeholder="Add Ingredients">
-                                    <button id="add-ingredient" class="button add-ingredients-add" type="submit"><i class="fa fa-plus"></i></button>
-                                    <button id="clear-ingredients" class="button is-rounded">Clear Ingredients</button>
-                                    <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
-                                </div>
-                                <div class="block" id="append-ingredients"></div>           
-                            <div class="block recipe-list-container" id="recipe-append">
-                            </div>
+        <section class="recipe-area">
+            <div id="recipe-area" class="block recipe-container">
+                <div id="scroll-recipe"></div>
+                <div class="is-inline-block">
+                    <div class="select is-rounded is-danger" >
+                        <select id="food-type" class="is-hovered changeAll">
+                            <option data-value="" disable selected>Food type (optional)</option>
+                            <option data-value="American">American</option>
+                            <option data-value="Chinese">Chinese</option>
+                            <option data-value="German">German</option>
+                            <option data-value="Indian">Indian</option>
+                            <option data-value="Italian">Italian</option>
+                            <option data-value="Japanese">Japanese</option>
+                            <option data-value="Mexican">Mexican</option>
+                            <option data-value="Thai">Thai</option>
+                        </select>
+                    </div>
+                    <div class="select is-rounded is-danger" >
+                        <select id="cook-time" class="is-hovered changeAll">
+                            <option data-value="800">Cook Time (optional)</option>
+                            <option data-value="20">Up to 20 minutes</option>
+                            <option data-value="40">Up to 40 minutes</option>
+                            <option data-value="60">Up to 1 hour</option>
+                            <option data-value="800">Any cook time</option>
+                        </select>
+                    </div>
+                    <input id="get-ingredient" type="text" class="add-ingredients-input input" placeholder="Add Ingredients">
+                    <button id="add-ingredient" class="button add-ingredients-add" type="submit"><i class="fa fa-plus"></i></button>
+                    <button id="clear-ingredients" class="button is-rounded">Clear Ingredients</button>
+                    <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
+                </div>
+                <div class="block" id="append-ingredients"></div>           
+                <div class="block recipe-list-container" id="recipe-append">
+                </div>
+            </div>
+            
+            
+            
+        </section>
+        
+        
+        <br>
+        <br>
+        
+        <!-- switch this bootstrap stuff to bulma -->
+        <section>
+            <div id="map" class="mapSpace"></div>
+            <div class="container-fluid">
+                
+                <div class="row">
+                    <div class="col mt-3 mb-2 text-center">
+                        <h3>What food are you hungry for?</h3>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col mb-2">
+                        <input type="text" class="form-control" placeholder="What are you hungry for?" id="searchArea">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col mb-2">
+                        <div id="map-area">
+                            
                         </div>
-
-
-
-    </section>
-
-
-<br>
-<br>
-
-
-    
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <div class="block" id="boredBlock">
+        
+            <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Click Me!!!</button>
+            <p class="has-text-centered" id="boredActivity"></p>
+            
+        
+        
+        </div>
+        
 </body>
 </html>

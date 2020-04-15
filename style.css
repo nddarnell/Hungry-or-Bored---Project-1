@@ -169,3 +169,10 @@
 
 
 }
+#map-area {
+  height: 500px;
+}
+.mapSpace{
+  height: 10vh;
+  width: 5vw;
+}
