@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 function searchActivity(){
 
-    let boredURL= "https://www.boredapi.com/api/activity?participants=1&type=" + boredType
+    let boredURL= "https://www.boredapi.com/api/activity?participants=1&type=" + boredType;
 
     $.ajax({
         url:boredURL,
@@ -17,12 +17,8 @@ function searchActivity(){
     }).then(function(response){
         console.log(response);
 
-            let pElement = $("<p>");
-       
-            pElement.text(response.activity)
-            pElement.attr("class","has-text-centered");
-            $("#boredBlock").append(pElement);
-      
+        $("#boredActivity").text(response.activity);
+
     })
 
 };
@@ -32,6 +28,15 @@ $("#boredBtn").on("click",function(){
     searchActivity()
 
 })
+
+$("#selected").change(function(){
+   
+    console.log($(this).val());
+    var selected = $(this).val();
+    location.href="index.html#" + selected;
+})
+
+
 
 
 })

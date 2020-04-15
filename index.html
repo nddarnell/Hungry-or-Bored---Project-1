@@ -46,17 +46,12 @@
             <div class="field">
                 <div class="control has-icons-right" id="userOption">
                     <div class="select is-rounded is-danger" >
-                        <select class="is-hovered">
+                        <select class="is-hovered" id="selected">
                             <option>Your food your call</option>
-                            <option id="burgers">Burgers</option>
-                            <option id="pizza">Pizza</option>
-                            <option id="italian">Italian</option>
-                            <option id="french">French</option>
-                            <option id="chinese">Chinese</option>
-                            <option id="japanese">Japanese</option>
-                            <option id="takeOut">Mexican</option>
-                            <option id="middleEastern">Middle Eastern</option>
-                            <option id="bored">Or Bored</option>
+                            <option value="receiptBlock">Homemade Food</option>
+                            <option value="mapBlock">Delicious Food Nearby</option>
+                            <option value="boredBlock"id="bored">Or Just Bored</option>
+                            
                         </select>
                     </div>
                     <div class="icon is-small is-left">
@@ -85,11 +80,13 @@
 
 <div class="block" id="boredBlock">
 
-    <button class="button is-rounded is-medium is-fullwidth"id="boredBtn">Click Me!!!</button>
+    <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Click Me!!!</button>
+    <p class="has-text-centered" id="boredActivity"></p>
     
 
 
 </div>
+
 
 <br>
 <br>
