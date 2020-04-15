@@ -173,9 +173,12 @@
 
 }
 #map-area {
-  height: 500px;
+  height: 550px;
 }
 .mapSpace{
   height: 10vh;
   width: 5vw;
+}
+.width100 {
+  width: 20em;
 }
