@@ -136,7 +136,7 @@ $(document).ready(function(){
         var position = $($(this).attr("href")).offset().top;
         $("body, html").animate({
             scrollTop: position
-        } /* speed */ );
+        }, 2000 );
     });
     
 });  
