@@ -130,6 +130,9 @@
     .recipe-list{
         width: 100%;
     }
+    .recipe-list-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 #boredBlock{
