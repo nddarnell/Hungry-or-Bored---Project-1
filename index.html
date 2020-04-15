@@ -28,9 +28,10 @@
         <a class="navbar-item" href="#">Home</a>
     </div>
     <div class="navbar-menu">
-          <a class="navbar-item" href="#"> Receipt</a>
-          <a class="navbar-item" href="#"> Delivery</a>
-          <a class="navbar-item" href="#"> Bored</a>
+          <a class="navbar-item is-uppercase" href="#"> Find Takeout</a>
+          <a class="navbar-item is-uppercase" href="#scroll-recipe"> Find Recipe</a>
+          <a class="navbar-item is-uppercase" href="#"> Bored</a>
+          <a class="navbar-item is-uppercase" href="#"> About</a>
 </nav>
 </div>
 <br>
@@ -67,8 +68,8 @@
 <br>
 
         <div class="columns is-centered" id="choiceBox">
-            <div href="#append-ingredients" class="column has-text-centered is-6" id="homeMeal" style="background-color: #E3C567">
-                <a href="#append-ingredients" class="animated" id="homeMeal">Make a Home Meal</a>
+            <div href="#scroll-recipe" class="column has-text-centered is-6" id="homeMeal" style="background-color: #E3C567">
+                <a href="#scroll-recipe" class="animated" id="homeMeal">Make a Home Meal</a>
                 
             </div>
             <div class="column has-text-centered is-6" id="takeOut" style="background-color:#D9AE61">
@@ -91,7 +92,8 @@
         </div>
     </div>
     <section class="recipe-area">
-                        <div class="block recipe-container">
+                        <div id="recipe-area" class="block recipe-container">
+                            <div id="scroll-recipe"></div>
                             <div class="is-inline-block">
                             <div class="select is-rounded is-danger" >
                                 <select id="food-type" class="is-hovered changeAll">

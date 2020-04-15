@@ -5,13 +5,17 @@ $(document).ready(function(){
     //Listing call
     let currentSelection = "";
     let listingurl = "https://api.spoonacular.com/recipes/search?number=6&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
+    //Build Page on initial page load
     buildList(listingurl);
+
+    //Change list based on home screen dropdown
     $("#homeMeal").on("click", function(){
         currentSelection = $(".is-hovered").val()
         let listingurl = "https://api.spoonacular.com/recipes/search?query=" + currentSelection + "&number=6&instructionsRequired=true&apiKey=b1c4692acbe74405a4cfce6b5a43950d"
         console.log(listingurl);
         buildList(listingurl);
     });
+
     function buildList(listingurl){
         $.ajax({
             url: listingurl,
@@ -40,7 +44,7 @@ $(document).ready(function(){
                 let recipePhoto = response.results[i].image;
                 let id = response.results[i].id;
                 let recipeDiv = $("<div>");
-                recipeDiv.addClass("card notification recipe-list");
+                recipeDiv.addClass("card is-rounded recipe-list");
                 let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
                 recipeDiv.attr("data-value", id);
                 recipeImg.addClass("card-image");
@@ -55,10 +59,10 @@ $(document).ready(function(){
             }
             }
         });
-
-
     }
     
+
+    //Display popup with recipe steps
     $("#recipe-append").on("click",".recipe-list", function(){
         let recipeId = $(this).data("value");
         let specificurl = "https://api.spoonacular.com/recipes/" + recipeId + "/analyzedInstructions?apiKey=b1c4692acbe74405a4cfce6b5a43950d";
@@ -71,6 +75,7 @@ $(document).ready(function(){
         modalOuter.classList.remove('open');
     }
     
+    // Click outside closes modal
     modalOuter.addEventListener('click', function(event){
         const isOutside = !event.target.closest('.modal-inner');
         if (isOutside) {
@@ -92,13 +97,11 @@ $(document).ready(function(){
         let step = response[0].steps[i].step;
         let currentStep = $("<li>").text(step);
         stepOl.append(currentStep);
-
         }
-        //Pop up modal
-        //Add recipe content inside
-        
-    });
-}
+        });
+    }
+
+    // Add specific ingredients to custom call
     let ingredientArray = [];
     $("#add-ingredient").on("click", function(){
         let ingredientLabel = $("<span>");
@@ -110,11 +113,13 @@ $(document).ready(function(){
         $("#get-ingredient").val('');
     });
 
+    // Clear ingredients
     $("#clear-ingredients").on("click", function(){
         $("#append-ingredients").empty();
         ingredientArray.length = 0;
     });
 
+    // Use filter params to build list
     $("#filter-recipes").on("click", function(){
         let foodType = $("#food-type").find(':selected').data("value");
         let cookTime = $("#cook-time").find(':selected').data("value");
@@ -124,7 +129,8 @@ $(document).ready(function(){
         console.log(listingurl);
         buildList(listingurl);
     });
- 
+    
+    // Generic Scroller
     $("[href^='#']").click(function(e) {
         e.preventDefault();
         var position = $($(this).attr("href")).offset().top;
