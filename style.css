@@ -140,21 +140,21 @@ body {
 
 #boredBlock{
   height: 150vh;
-  background-color: #DC493A;
+  background-color: #DF594B;
   position: relative;
   margin-left: 0px;
   margin-right: 0px;
 }
 
 #boredBtn{
-  background-color: #DC493A;
+  background-color: #DF594B;
   color: aliceblue;
   border-radius: 12px;
   font-size: 40px;
   padding: 12px 28px;
   width: 40%;
   position: absolute;
-  top:200px;
+  top:250px;
   left:0px;
   right: 0;
   margin-left: auto;
@@ -171,10 +171,35 @@ body {
   color: aliceblue;
   top: 300px;
   font-size: 40px;
-  padding-top: 350px;
-
+  padding-top: 400px;
 
 }
+
+.square1{
+  position: absolute;
+  z-index: 0;
+  top: 100px;
+  left: 20px;
+  width: 400px;
+  height: 400px;
+  border: 10px solid #8C2F25;
+  transform: rotate(20deg);
+  overflow: hidden;
+
+}
+
+.square2{
+  position: absolute;
+  z-index: 0;
+  top: 300px;
+  left: 20px;
+  width: 250px;
+  height: 250px;
+  border: 5px solid #CC7178;
+  
+}
+
+
 #map-area {
   height: 550px;
   width: 90vw;
@@ -186,4 +211,8 @@ body {
 .width100 {
   width: 20em;
   margin-bottom: 2em;
+}
+
+.footer{
+  color: aliceblue;
 }
