@@ -27,7 +27,7 @@
 <body>
 
 <div id="top" class="block">
-<nav class ="navbar is-fixed-top" style="background-color:#D98324 ;">
+<nav class ="navbar is-fixed-top" style="background-color:#D98324;">
     <div class="navbar-brand">
         <a class="navbar-item" href="#top">Home</a>
     </div>
@@ -68,8 +68,6 @@
     </div>
 </section>
 
-<br>
-<br>
 
         <div class="columns is-centered" id="choiceBox">
             <div href="#scroll-recipe" class="column has-text-centered is-6" id="homeMeal" style="background-color: #E3C567">
@@ -119,17 +117,10 @@
                     <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
                 </div>
                 <div class="block" id="append-ingredients"></div>           
-                <div class="block recipe-list-container" id="recipe-append">
+                <div class="block recipe-list-container lax" id="recipe-append" data-lax-preset="fadeIn">
                 </div>
             </div>
-            
-            
-            
         </section>
-        
-        
-        <br>
-        <br>
          
         <!-- switch this bootstrap stuff to bulma -->
         <section>
@@ -137,7 +128,7 @@
             <div class="block">
                 
                 <div class="level-item">
-                    <div class="centered ">
+                    <div class="is-centered ">
                         <input type="text" class="width100 input is-normal is-rounded is-danger" placeholder="What are you hungry for?" id="searchArea">
                     </div>
                     
@@ -155,13 +146,19 @@
         </section>
         
         <div class="block" id="boredBlock">
+            <div class="square1 lax" data-lax-preset="spin"></div>
+            <div class="square2 lax" data-lax-preset="spinRev"></div>
         
-            <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Click Me!!!</button>
+            <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Bored? Click Me!!!</button>
             <p class="has-text-centered" id="boredActivity"></p>
-            
-        
         
         </div>
+
+        <footer class="footer" style="background-color:#D98324;">
+            <div class="content has-text-centered" id="footer">
+            <p>About</sp>
+            </div>
+        </footer>
         
 </body>
 </html>
