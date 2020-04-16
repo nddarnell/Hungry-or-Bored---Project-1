@@ -36,13 +36,13 @@ $(document).ready(function(){
                 for (let i = 0; i < 6; i++){
                 let recipeName = response.results[i].title;
                 let recipeCookTime = response.results[i].readyInMinutes;
+                let id = response.results[i].id;
                 let baseUri = "";
                 if (typeof response.baseUri !== "undefined"){
-                     baseUri = response.baseUri;
+                    baseUri = response.baseUri;
                 }
                 console.log(baseUri);
                 let recipePhoto = response.results[i].image;
-                let id = response.results[i].id;
                 let recipeDiv = $("<div>");
                 recipeDiv.addClass("card is-rounded recipe-list");
                 let recipeImg = $("<img>").attr("src", baseUri + recipePhoto);
@@ -52,15 +52,16 @@ $(document).ready(function(){
                 let recipeNameh2 = $("<h2>").text(recipeName);
                 recipeNameh2.addClass("title is-4");
                 recipeDiv.append(recipeNameh2);
-                let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
-                recipeTimeP.addClass("sub-title is-2");
-                recipeDiv.append(recipeTimeP);
+                if (recipeCookTime !== undefined){
+                    let recipeTimeP = $("<p>").text("Total cook time: " + recipeCookTime + " minutes");
+                    recipeTimeP.addClass("sub-title is-2");
+                    recipeDiv.append(recipeTimeP);
+                }
                 $("#recipe-append").append(recipeDiv);
             }
             }
         });
     }
-    
 
     //Display popup with recipe steps
     $("#recipe-append").on("click",".recipe-list", function(){
