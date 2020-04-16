@@ -65,9 +65,11 @@ $(document).ready(function(){
     //Display popup with recipe steps
     $("#recipe-append").on("click",".recipe-list", function(){
         let recipeId = $(this).data("value");
-        let specificurl = "https://api.spoonacular.com/recipes/" + recipeId + "/analyzedInstructions?apiKey=b1c4692acbe74405a4cfce6b5a43950d";
+        let ingredientsurl = "https://api.spoonacular.com/recipes/" + recipeId + "/ingredientWidget.json?apiKey=b1c4692acbe74405a4cfce6b5a43950d";
+        let stepsurl = "https://api.spoonacular.com/recipes/" + recipeId + "/analyzedInstructions?apiKey=b1c4692acbe74405a4cfce6b5a43950d";
         console.log(recipeId);
-        specificRecipe(specificurl);
+        specificRecipeSteps(stepsurl);
+        specificRecipeIngredients(ingredientsurl)
         $("#append-recipe-details").empty();
     });
     
@@ -84,22 +86,49 @@ $(document).ready(function(){
     });
     
     //Specific URL call
-    function specificRecipe(specificurl){
+    function specificRecipeSteps(stepsurl){
         $.ajax({
-            url: specificurl,
+            url: stepsurl,
             method: 'GET',
         }).then(function(response){
-            console.log(response[0].steps);
-            modalOuter.classList.add('open');
-            let stepOl = $("<ol>");
-            $("#append-recipe-details").append(stepOl)
-        for (let i = 0; i < response[0].steps.length; i++){
-        let step = response[0].steps[i].step;
-        let currentStep = $("<li>").text(step);
-        stepOl.append(currentStep);
+            console.log(response);
+             console.log(response[0].steps);
+             modalOuter.classList.add('open');
+             let stepOl = $("<ol>");
+             $("#append-recipe-details").append(stepOl)
+         for (let i = 0; i < response[0].steps.length; i++){
+         let step = response[0].steps[i].step;
+         let currentStep = $("<li>").text(step);
+         stepOl.append(currentStep);
         }
-        });
-    }
+        let stepsH1 = $("<h1>").text("Steps:")
+        stepsH1.addClass("has-text-weight-bold")
+        stepOl.prepend(stepsH1);
+    });
+}
+function specificRecipeIngredients(ingredientsurl){
+    $.ajax({
+        url: ingredientsurl,
+        method: 'GET',
+    }).then(function(response){
+        console.log(response);
+        console.log(response.ingredients);
+        let ingredientUl = $("<ul>");
+        ingredientUl.addClass("ingredient-ul")
+        $("#append-recipe-details").prepend(ingredientUl)
+        for (let i = 0; i < response.ingredients.length; i++){
+            let ingredient = response.ingredients[i].name;
+            let ingredientvalue = response.ingredients[i].amount.us.value;
+            let ingredientunit = response.ingredients[i].amount.us.unit;
+            let currentIngredient = $("<li>").text(ingredient + " (" + ingredientvalue + " " + ingredientunit + ")");
+            ingredientUl.append(currentIngredient);
+            ingredientUl.append(currentIngredient);
+        }
+        let ingredientsH1 = $("<h1>").text("Ingredients:")
+        ingredientsH1.addClass("has-text-weight-bold")
+        ingredientUl.prepend(ingredientsH1);
+    });
+}
 
     // Add specific ingredients to custom call
     let ingredientArray = [];
