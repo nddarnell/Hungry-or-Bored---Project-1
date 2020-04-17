@@ -26,139 +26,153 @@
 </head>
 <body>
 
-<div id="top" class="block">
-<nav class ="navbar is-fixed-top" style="background-color:#D98324;">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="#top">Home</a>
+    <div id="top" class="block">
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+            
+            
+              <a id="burgerButton" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+        
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#top">Home</a>
+                    <a class="navbar-item is-uppercase" href="#map"> Find Takeout</a>
+                    <a class="navbar-item is-uppercase" href="#scroll-recipe"> Find Recipe</a>
+                    <a class="navbar-item is-uppercase" href="#boredBlock"> Bored</a>
+                    <a class="navbar-item is-uppercase" href="#footer"> About</a>
+                </div>
+            </div>
+          </nav>
     </div>
-    <div class="navbar-menu">
-          <a class="navbar-item is-uppercase" href="#map"> Find Takeout</a>
-          <a class="navbar-item is-uppercase" href="#scroll-recipe"> Find Recipe</a>
-          <a class="navbar-item is-uppercase" href="#boredBlock"> Bored</a>
-          <a class="navbar-item is-uppercase" href="#"> About</a>
-</nav>
-</div>
-<br>
-<br>
+    <br>
+    <br>
 
 
-<section class="hero is-medium is-bold" style="background-image: url('./assets/italianbackgroundmedium.jpg');" id="backgroundHome">
-    <div class="hero-body">
-        <div class="container">
-            <h2 class="title is-2 has-text-centered animated rotateIn delay-1s" id="homeTitle" >
-                Hungry or Bored
-            </h2>   
-            <div class="field">
-                <div class="control has-icons-right" id="userOption">
-                    <div class="select is-rounded is-danger" >
-                        <select class="is-hovered" id="selected">
-                            <option>Your food your call</option>
-                            <option value="recipe-area">Homemade Food</option>
-                            <option value="map">Delicious Food Nearby</option>
-                            <option value="boredBlock"id="bored">Or Just Bored</option>
-                            
-                        </select>
-                    </div>
-                    <div class="icon is-small is-left">
-                        <i class="fas fa-utensils"></i>
-                      </div>
-                </div>    
+    <section class="hero is-medium is-bold" style="background-image: url('./assets/italianbackgroundmedium.jpg');" id="backgroundHome">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title is-2 has-text-centered animated rotateIn delay-1s" id="homeTitle" >
+                    Hungry or Bored
+                </h2>   
+                <div class="field">
+                    <div class="control has-icons-right" id="userOption">
+                        <div class="select is-rounded is-danger" >
+                            <select class="is-hovered" id="selected">
+                                <option>Your food your call</option>
+                                <option value="scroll-recipe">Homemade Food</option>
+                                <option value="map">Delicious Food Nearby</option>
+                                <option value="boredBlock"id="bored">Or Just Bored</option>
+
+                            </select>
+                        </div>
+                        <div class="icon is-small is-left">
+                            <i class="fas fa-utensils"></i>
+                          </div>
+                    </div>    
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-        <div class="columns is-centered" id="choiceBox">
-            <div href="#scroll-recipe" class="column has-text-centered is-6" id="homeMeal" style="background-color: #E3C567">
-                <a href="#scroll-recipe" class="animated" id="homeMeal">Make a Home Meal</a>
-                
-            </div>
-            <div class="column has-text-centered is-6" id="takeOut" style="background-color:#D9AE61">
-                <a href="#" data-id="takeOut" data-lax-preset="spin">Restaurant Nearby</a>
-            </div>
-           
-          </div>
-
-
-          <div class="modal-outer">
-              <div class="modal-inner" id="append-recipe-details">  
-            </div>
-        </div>
-        <section class="recipe-area">
-            <div id="recipe-area" class="block recipe-container">
-                <div id="scroll-recipe"></div>
-                <div class="is-inline-block">
-                    <div class="select is-rounded is-danger" >
-                        <select id="food-type" class="is-hovered changeAll">
-                            <option data-value="" disable selected>Food type (optional)</option>
-                            <option data-value="American">American</option>
-                            <option data-value="Chinese">Chinese</option>
-                            <option data-value="German">German</option>
-                            <option data-value="Indian">Indian</option>
-                            <option data-value="Italian">Italian</option>
-                            <option data-value="Japanese">Japanese</option>
-                            <option data-value="Mexican">Mexican</option>
-                            <option data-value="Thai">Thai</option>
-                        </select>
-                    </div>
-                    <div class="select is-rounded is-danger" >
-                        <select id="cook-time" class="is-hovered changeAll">
-                            <option data-value="800">Cook Time (optional)</option>
-                            <option data-value="20">Up to 20 minutes</option>
-                            <option data-value="40">Up to 40 minutes</option>
-                            <option data-value="60">Up to 1 hour</option>
-                            <option data-value="800">Any cook time</option>
-                        </select>
-                    </div>
-                    <input id="get-ingredient" type="text" class="add-ingredients-input input" placeholder="Add Ingredients">
-                    <button id="add-ingredient" class="button add-ingredients-add" type="submit"><i class="fa fa-plus"></i></button>
-                    <button id="clear-ingredients" class="button is-rounded">Clear Ingredients</button>
-                    <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
-                </div>
-                <div class="block" id="append-ingredients"></div>           
-                <div class="block recipe-list-container lax" id="recipe-append" data-lax-preset="fadeIn">
+              <div class="modal-outer">
+                  <div class="modal-inner" id="append-recipe-details">  
                 </div>
             </div>
-        </section>
-         
-        <!-- switch this bootstrap stuff to bulma -->
-        <section>
-            <div id="map" class="mapSpace"></div>
-            <div class="block">
-                
-                <div class="level-item">
-                    <div class="is-centered ">
-                        <input type="text" class="width100 input is-normal is-rounded is-danger" placeholder="What are you hungry for?" id="searchArea">
+            <section class="recipe-area">
+                <div id="recipe-area" class="block recipe-container">
+                    <div id="scroll-recipe"></div>
+                    <div class="is-inline-block">
+                        <div class="select is-rounded is-danger" >
+                            <select id="food-type" class="is-hovered changeAll">
+                                <option data-value="" disable selected>Food type (optional)</option>
+                                <option data-value="American">American</option>
+                                <option data-value="Chinese">Chinese</option>
+                                <option data-value="German">German</option>
+                                <option data-value="Indian">Indian</option>
+                                <option data-value="Italian">Italian</option>
+                                <option data-value="Japanese">Japanese</option>
+                                <option data-value="Mexican">Mexican</option>
+                                <option data-value="Thai">Thai</option>
+                            </select>
+                        </div>
+                        <div class="select is-rounded is-danger" >
+                            <select id="cook-time" class="is-hovered changeAll">
+                                <option data-value="800">Cook Time (optional)</option>
+                                <option data-value="20">Up to 20 minutes</option>
+                                <option data-value="40">Up to 40 minutes</option>
+                                <option data-value="60">Up to 1 hour</option>
+                                <option data-value="800">Any cook time</option>
+                            </select>
+                        </div>
+                        <input id="get-ingredient" type="text" class="add-ingredients-input input" placeholder="Add Ingredients">
+                        <button id="add-ingredient" class="button add-ingredients-add" type="submit"><i class="fa fa-plus"></i></button>
+                        <button id="clear-ingredients" class="button is-rounded">Clear Ingredients</button>
+                        <button id="filter-recipes" class="button is-rounded is-danger">Filter Recipe List</button>
                     </div>
-                    
+                    <div class="block" id="append-ingredients"></div>           
+                    <div class="block recipe-list-container lax" id="recipe-append" data-lax-preset="fadeIn">
+                    </div>
                 </div>
-                
-                <div class="level-item">
-                    <div class="centered">
-                        <div id="map-area">
-                            
+            </section>
+             
+            <!-- switch this bootstrap stuff to bulma -->
+            <section>
+                <div id="map" class="mapSpace"></div>
+                <div class="block">
+
+                    <div class="level-item">
+                        <div class="is-centered ">
+                            <input type="text" class="width100 input is-normal is-rounded is-danger" placeholder="What are you hungry for?" id="searchArea">
+                        </div>
+
+                    </div>
+
+                    <div class="level-item">
+                        <div class="centered">
+                            <div id="map-area">
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-            </div>
-        </section>
-        
-        <div class="block" id="boredBlock">
-            <div class="square1 lax" data-lax-preset="spin"></div>
-            <div class="square2 lax" data-lax-preset="spinRev"></div>
-        
-            <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Bored? Click Me!!!</button>
-            <p class="has-text-centered" id="boredActivity"></p>
-        
-        </div>
 
-        <footer class="footer" style="background-color:#D98324;">
-            <div class="content has-text-centered" id="footer">
-            <p>About</sp>
+                </div>
+            </section>
+
+            <div class="block" id="boredBlock">
+                <div class="square1 lax" data-lax-preset="spin"></div>
+                <div class="square2 lax" data-lax-preset="spinRev"></div>
+            
+                <button class="lax" data-lax-preset="spinIn-180" class="button"id="boredBtn">Bored? Click Me!!!</button>
+                <p class="has-text-centered" id="boredActivity"></p>
+            
             </div>
-        </footer>
-        
+
+            <footer class="footer" style="background-color:#D98324;">
+                <div class="content has-text-centered" id="footer">
+                    <p class="history is-size-3">About</p>
+                    <p>This project was created during the 2nd Great Recession of the 21st Century. Formerly known as the CoronaVirus...</p>
+
+                    <p class="madeBy has-text-weight-bold">Made By:</p>
+                    <div class="names">
+                        <p>TongTong Ding, Stephen Studer, Nathan Darnell</p>
+                    </div>
+                    <p class="createdWith has-text-weight-bold">Created With:</p>
+                    <div class="apis">
+                        <p>Bulma CSS Framework</p>
+                        <p class="has-text-weight-bold">Javascript Libraries:</p>
+                        <p>Laxxx, Jquery, Animate.css</p>
+                        <p class="has-text-weight-bold">Server Side API's:</p>
+                        <p>Spoonacular API, Bored API, and Google Places API</p>
+                    </div>
+
+                </div>
+            </footer>
+
 </body>
 </html>

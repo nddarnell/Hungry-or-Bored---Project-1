@@ -36,6 +36,12 @@ $("#selected").change(function(){
     location.href="index.html#" + selected;
 })
 
+var button = $("#burgerButton")
+
+button.on("click", function(){
+    $(".navbar-menu").toggleClass("is-active");
+    $(".navbar-burger").toggleClass("is-active");
+})
 
 
 

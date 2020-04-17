@@ -10,7 +10,8 @@
 #backgroundHome {
   background-size: 1500px;
   width: 100%;
-  height: 450px;
+  height: 650px;
+  margin-top: 0em;
 }
 
 #choiceBox {
@@ -219,4 +220,14 @@ body {
 
 .footer{
   color: aliceblue;
+}
+html{
+  scroll-behavior: smooth;
+}
+.hero-body{
+  display: flex;
+  align-items: center;
+}
+.is-inline{
+  display: flex;
 }

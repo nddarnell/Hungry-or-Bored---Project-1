@@ -166,7 +166,7 @@ function specificRecipeIngredients(ingredientsurl){
         var position = $($(this).attr("href")).offset().top;
         $("body, html").animate({
             scrollTop: position
-        }, 2000 );
+        });
     });
     
 });  
