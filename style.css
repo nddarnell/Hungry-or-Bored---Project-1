@@ -131,17 +131,6 @@ body {
     height: 10vh;
     width: 5vw;
 }
-@media (max-width:768px){
-    .recipe-list-container {
-        flex-direction: column;
-    }
-    .recipe-list{
-        width: 100%;
-    }
-    .recipe-list-container {
-        grid-template-columns: 1fr;
-    }
-}
 
 #boredBlock{
   height: 150vh;
@@ -164,7 +153,7 @@ body {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-
+  z-index: 50;
 }
 
 #boredBtn:hover{
@@ -174,10 +163,9 @@ body {
 
 #boredActivity{
   color: aliceblue;
-  top: 300px;
   font-size: 40px;
   padding-top: 400px;
-
+  position: relative;
 }
 
 .square1{
@@ -190,7 +178,7 @@ body {
   border: 10px solid #8C2F25;
   transform: rotate(20deg);
   overflow: hidden;
-
+  
 }
 
 .square2{
@@ -230,4 +218,33 @@ html{
 }
 .is-inline{
   display: flex;
+}
+
+@media (max-width:768px){
+    .recipe-list-container {
+        flex-direction: column;
+    }
+    .recipe-list{
+        width: 100%;
+    }
+    .recipe-list-container {
+        grid-template-columns: 1fr;
+    }
+    .card-image{
+      width: 100px;
+      height: 100px;
+    }
+    #boredActivity{
+      position: relative;
+      bottom: -50px;
+    }
+    .square1{
+      width: 200px;
+      height: 200px;
+    }
+    .square2{
+      width: 100px;
+      height: 100px;
+    }
+    
 }
