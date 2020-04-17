@@ -1,13 +1,13 @@
 $(document).ready(function(){
-    let allType = ["education", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
     
-    var num = Math.floor(Math.random()*6)+1
-    console.log(num);
-
-    let boredType = allType[num];
-    console.log(boredType);
-
-function searchActivity(){
+    function searchActivity(){
+        let allType = ["education", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+        
+        var num = Math.floor(Math.random()*6)+1
+        console.log(num);
+    
+        let boredType = allType[num];
+        console.log(boredType);
 
     let boredURL= "https://www.boredapi.com/api/activity?participants=1&type=" + boredType;
 
@@ -21,27 +21,27 @@ function searchActivity(){
 
     })
 
-};
+    };
 
-$("#boredBtn").on("click",function(){
+    $("#boredBtn").on("click",function(){
    
-    searchActivity()
+        searchActivity()
 
-})
+    })
 
-$("#selected").change(function(){
-   
-    console.log($(this).val());
-    var selected = $(this).val();
-    location.href="index.html#" + selected;
-})
+    $("#selected").change(function(){
+    
+        console.log($(this).val());
+        var selected = $(this).val();
+        location.href="index.html#" + selected;
+    })
 
-var button = $("#burgerButton")
+    var button = $("#burgerButton")
 
-button.on("click", function(){
-    $(".navbar-menu").toggleClass("is-active");
-    $(".navbar-burger").toggleClass("is-active");
-})
+    button.on("click", function(){
+        $(".navbar-menu").toggleClass("is-active");
+        $(".navbar-burger").toggleClass("is-active");
+    })
 
 
 
