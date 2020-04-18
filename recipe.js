@@ -126,7 +126,7 @@ function specificRecipeIngredients(ingredientsurl){
             ingredientUl.append(currentIngredient);
         }
         let ingredientsH1 = $("<h1>").text("Ingredients:")
-        ingredientsH1.addClass("has-text-weight-bold")
+        ingredientsH1.addClass("has-text-weight-bold wrap-style")
         ingredientUl.prepend(ingredientsH1);
     });
 }
