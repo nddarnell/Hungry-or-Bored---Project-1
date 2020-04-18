@@ -7,4 +7,8 @@ window.onload = function() {
 	}
 
 	window.requestAnimationFrame(updateLax)
+
+	lax.setup({
+		breakpoints: { small: 0, large: 700 }
+	})
 }
