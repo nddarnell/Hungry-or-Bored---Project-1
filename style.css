@@ -88,6 +88,7 @@
 
 .recipe-list:hover {
   border: 1px solid #f14668;
+  cursor: pointer;
 }
 .recipe-list-container {
   display: grid;
