@@ -21,6 +21,13 @@
 #homeMeal {
   line-height: 200px;
 }
+#section2 {
+  height: 40em;
+}
+.is-white {
+  color: white;
+  margin-bottom: 0 !important;
+}
 
 #takeOut {
   line-height: 200px;
@@ -132,7 +139,7 @@ body {
   height: 10vh;
   width: 5vw;
 }
-.map-area{
+.map-area {
   min-height: 70em;
 }
 
@@ -269,7 +276,7 @@ html {
   .wrap-style {
     margin-right: 100%;
   }
-  #boredBlock{
+  #boredBlock {
     height: 50em;
   }
 }
